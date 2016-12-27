@@ -94,11 +94,13 @@ open class TagView: UIButton {
             backgroundColor = selectedBackgroundColor ?? tagBackgroundColor
             layer.borderColor = selectedBorderColor?.cgColor ?? borderColor?.cgColor
             setTitleColor(selectedTextColor, for: UIControlState())
+            removeButton.enableButton = true
         }
         else {
             backgroundColor = tagBackgroundColor
             layer.borderColor = borderColor?.cgColor
             setTitleColor(textColor, for: UIControlState())
+            removeButton.enableButton = false
         }
     }
     

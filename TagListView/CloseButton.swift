@@ -13,7 +13,17 @@ internal class CloseButton: UIButton {
     var iconSize: CGFloat = 10
     var lineWidth: CGFloat = 1
     var lineColor: UIColor = UIColor.white.withAlphaComponent(0.54)
-
+    
+    var enableButton: Bool = false {
+        didSet {
+            if enableButton {
+                self.setImage(UIImage(named:"icTagRemove"), for: UIControlState.normal)
+            } else {
+                self.setImage(UIImage(named:"icTagAdd"), for: UIControlState.normal)
+            }
+        }
+    }
+    
     weak var tagView: TagView?
 
     override func draw(_ rect: CGRect) {
@@ -37,6 +47,7 @@ internal class CloseButton: UIButton {
         lineColor.setStroke()
 
         path.stroke()
+        self.setImage(UIImage(named:"icTagAdd"), for: UIControlState.normal)
     }
 
 }
